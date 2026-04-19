@@ -55,6 +55,21 @@ local.properties
 .scala_dependencies
 .worksheet
 
-# Uncomment this line if you wish to ignore the project description file.
-# Typically, this file would be tracked if it contains build/dependency configurations:
-#.project
+# =========================
+# VS Code & WSL Specific
+# =========================
+.vscode/
+
+# =========================
+# Standard Java & Build
+# =========================
+*.class
+*.jar
+*.war
+*.log
+
+# =========================
+# OS Generated Files
+# =========================
+.DS_Store
+Thumbs.db
