@@ -73,3 +73,7 @@ local.properties
 # =========================
 .DS_Store
 Thumbs.db
+
+# Eclipse specific files
+.project
+.classpath
