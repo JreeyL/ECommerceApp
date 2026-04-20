@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Run OOP2 (Java 25 Force)",
+            "request": "launch",
+            "preLaunchTask": "Build Only (Java 25 Preview)",
+            "mainClass": "dev.ecommerce.app.ECommerceApp",
+            "vmArgs": "--enable-preview",
+            "env": {
+                "JAVA_HOME": "${env:HOME}/.sdkman/candidates/java/25.0.2-tem"
+            },
+            "console": "internalConsole"
+        }
+    ]
+}

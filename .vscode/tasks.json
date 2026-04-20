@@ -1,0 +1,38 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Only (Java 25 Preview)",
+            "type": "shell",
+            "command": "find src -name '*.java' -print0 | xargs -0 javac --release 25 --enable-preview -d bin && mkdir -p bin/resources && cp src/resources/* bin/resources/",
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "JAVA_HOME": "${env:HOME}/.sdkman/candidates/java/25.0.2-tem",
+                    "PATH": "${env:HOME}/.sdkman/candidates/java/25.0.2-tem/bin:${env:PATH}"
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$javac"
+            ]
+        },
+        {
+            "label": "Build + Run (Java 25 Preview)",
+            "type": "shell",
+            "command": "java --enable-preview -cp ${workspaceFolder}/bin dev.ecommerce.app.ECommerceApp",
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "JAVA_HOME": "${env:HOME}/.sdkman/candidates/java/25.0.2-tem",
+                    "PATH": "${env:HOME}/.sdkman/candidates/java/25.0.2-tem/bin:${env:PATH}"
+                }
+            },
+            "dependsOn": "Build Only (Java 25 Preview)",
+            "problemMatcher": []
+        }
+    ]
+}

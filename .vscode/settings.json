@@ -1,0 +1,11 @@
+{
+    "java.autobuild.enabled": true,
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.compile.compilerArgs": [
+        "--enable-preview",
+        "-Xlint:preview"
+    ],
+    "java.debug.settings.console": "internalConsole",
+    "java.debug.settings.forceBuildBeforeLaunch": true,
+    "java.debug.settings.onBuildFailureProceed": true
+}

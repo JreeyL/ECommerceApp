@@ -6,7 +6,8 @@ tmp/
 *.swp
 *~.nib
 local.properties
-.settings/
+.settings/*
+!.settings/org.eclipse.jdt.core.prefs
 .loadpath
 .recommenders
 
@@ -56,9 +57,12 @@ local.properties
 .worksheet
 
 # =========================
-# VS Code & WSL Specific
+# VS Code & WSL Specific (track shared project config only)
 # =========================
-.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
 
 # =========================
 # Standard Java & Build
@@ -75,5 +79,3 @@ local.properties
 Thumbs.db
 
 # Eclipse specific files
-.project
-.classpath
