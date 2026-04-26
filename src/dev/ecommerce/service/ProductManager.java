@@ -12,6 +12,7 @@ import java.nio.file.Path;
 import java.text.MessageFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -50,7 +51,7 @@ public class ProductManager {
 
     public Model getMostExpensiveItem() {
         return inventory.stream()
-                .max((a, b) -> Double.compare(a.getPrice(), b.getPrice()))
+                .max(Comparator.comparing(Model::getPrice))
                 .orElseThrow(() -> new IllegalStateException("Inventory is empty"));
     }
 
@@ -81,7 +82,7 @@ public class ProductManager {
         ResourceBundle bundle = ResourceBundle.getBundle("resources.messages", locale);
         NumberFormat currency = NumberFormat.getCurrencyInstance(locale);
 
-        System.out.println(bundle.getString("catalog.header"));
+        System.out.println("\n" + bundle.getString("catalog.header"));
         for (Model model : inventory) {
             String line = MessageFormat.format(
                     bundle.getString("catalog.item"),

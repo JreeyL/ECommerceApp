@@ -8,6 +8,12 @@ public class Food extends Model {
 	private java.time.LocalDate bestBefore;
 
 	public Food(String name, double price, double weight, String from, Category category, double calories, LocalDate bestBefore) {
+		if (calories < 0) {
+			throw new IllegalArgumentException("Calories cannot be negative");
+		}
+		if (bestBefore == null) {
+			throw new IllegalArgumentException("Best before date cannot be null");
+		}
 		super(name, price, weight, from, category);
 		this.calories = calories;
 		this.bestBefore = bestBefore;

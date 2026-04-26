@@ -7,23 +7,25 @@ import java.util.List;
 public class Cookware extends Model {
 	
 	private String material;
-	private List<Product> items = new ArrayList<Product>();
+	private List<Model> items = new ArrayList<>();
 	
 	public Cookware(String name, double price, double weight, String from, Category category, String material) {
 		super(name, price, weight, from, category);
 		this.material = material;
 	}
 	
-	public void addProduct(Product...products) {
+	public void addProduct(Model...products) {
 		this.items.addAll(Arrays.asList(products));
 	}
 	
-	public List<Product> getIteams() {
+	public List<Model> getIteams() {
 		return new ArrayList<>(this.items);
 	}
 	
 	public double getTotal() {
-		return 0.0;
+		return this.items.stream()
+				.mapToDouble(Model::getPrice)
+				.sum();
 	}
 	
 	@Override
